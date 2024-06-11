@@ -1,0 +1,29 @@
+.analyticsPage {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.sidebar {
+    transition: width 0.5s ease;
+}
+
+.mapContainer {
+    flex-grow: 1;
+    transition: margin-left 0.5s ease;
+    height: 100vh;
+}
+
+.sidebarContainer.sidebar.expanded ~ .mapContainer {
+    margin-left: 20%;
+}
+
+.sidebarContainer .sidebar.collapsed ~ .mapContainer {
+    margin-left: 5%;
+}
+
+.mapContainer iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}

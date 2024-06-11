@@ -1,0 +1,145 @@
+@keyframes bounceExpand {
+  0% {
+    width: 5%;
+  }
+  100% {
+    width: 21%;
+  }
+}
+
+@keyframes bounceCollapse {
+  0% {
+    width: 21%;
+  }
+  100% {
+    width: 5%;
+  }
+}
+
+.sidebarContainer {
+  position: relative;
+  width: 5%;
+  background-color: #faf7f0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  transition: width 0.5s ease;
+}
+
+.sidebarContainer.expanded {
+  width: 20%;
+  animation: bounceExpand 0.3s ease forwards;
+}
+
+.sidebarContainer.collapsed {
+  width: 5%;
+  animation: bounceCollapse 0.3s ease forwards;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 64px; 
+  transition: all 0.5s ease;
+  margin: 40px 0 5px;
+}
+
+.logo, .collapsedLogo {
+  width: 50%;  
+  height: 50%; 
+  transition: opacity 0.5s ease;
+}
+.logo{
+  width: 50%;
+  height: 85%;
+}
+
+.logo.hidden, .collapsedLogo.hidden {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+}
+
+.borderNav {
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  width: 90%;
+  margin: 10px auto;
+}
+
+.menu, .menuBottom {
+  width: 100%;
+  padding: 20px 0;
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transform: translateX(10px);
+}
+
+.menuBottom {
+  position: absolute; 
+  bottom: 0; 
+}
+
+.menuItem {
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap; /*no text wrap*/
+}
+
+.menuLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.menuIcon {
+  font-size: 24px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.menuText {
+  @apply text-2xl; /* Equivalent to font-size: 24px */
+  font-family: 'Arial', sans-serif !important;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity: 1; 
+  margin-left: 5px; 
+  
+}
+
+.sidebarContainer.expanded .menuText {
+  opacity: 1; 
+  transform: translateX(0); 
+}
+
+.sidebarContainer.collapsed .menuText {
+  opacity: 0; 
+  transform: translateX(-20px);
+}
+
+@media (min-width: 768px) {
+  .sidebarContainer {
+    width: 15%;
+  }
+
+  .sidebarContainer.collapsed {
+    width: 5%;
+  }
+
+  .sidebarContainer.expanded {
+    width: 26%;
+  }
+}
